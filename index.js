@@ -29,7 +29,7 @@ urlList
     // Remove duplicate unique video IDs
     videos = videos.filter((elem, pos) => videos.indexOf(elem) === pos);
 
-    signale.info(`${videos.length} videos to download.`);
+    signale.info(`${videos.length} videos to download`);
 
     videos.forEach(async videoID => {
       // Get data for determining title of file
