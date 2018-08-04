@@ -1,5 +1,7 @@
+#! /usr/bin/env node
+
 const signale = require('signale');
-const { join } = require('path');
+const { join, parse, format } = require('path');
 const lineByLine = require('linebyline');
 const ytdl = require('ytdl-core');
 const { existsSync, createWriteStream } = require('fs');
@@ -8,12 +10,25 @@ inquirer.registerPrompt('fuzzypath', require('inquirer-fuzzy-path'));
 
 signale.start('music-downloader started');
 
+// Path to put default search area for file selection
+let userHomePath;
+if (process.env.HOME) {
+  userHomePath = process.env.HOME;
+} else if (process.env.HOMEPATH) {
+  userHomePath = process.env.HOMEPATH;
+} else {
+  userHomePath = __dirname;
+}
+
+userHomePath = format(parse(userHomePath));
+
 inquirer
   .prompt([{
     type: 'fuzzypath',
     name: 'urlList',
     // Only allow non-directories and text files
     pathFilter: (isDirectory, nodePath) => !isDirectory && nodePath.endsWith('.txt'),
+    rootPath: userHomePath,
     message: 'Select a text file to load videos from (1 video per line):'
   },
   {
@@ -21,6 +36,7 @@ inquirer
     name: 'resultDirectory',
     // Only allow directories
     pathFilter: isDirectory => isDirectory,
+    rootPath: join(userHomePath, 'Music'),
     message: 'Select a directory to store downloaded audio to:'
   }])
   .catch(err => signale.error(err))
