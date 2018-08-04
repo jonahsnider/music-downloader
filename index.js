@@ -1,7 +1,7 @@
 #! /usr/bin/env node
 
 const signale = require('signale');
-const { join, sep } = require('path');
+const { join } = require('path');
 const lineByLine = require('linebyline');
 const ytdl = require('ytdl-core');
 const { existsSync, createWriteStream } = require('fs');
@@ -16,7 +16,6 @@ inquirer
     name: 'urlList',
     // Only allow non-directories and text files
     pathFilter: (isDirectory, nodePath) => !isDirectory && nodePath.endsWith('.txt'),
-    rootPath: sep,
     message: 'Select a text file to load videos from (1 video per line):'
   },
   {
@@ -24,7 +23,6 @@ inquirer
     name: 'resultDirectory',
     // Only allow directories
     pathFilter: isDirectory => isDirectory,
-    rootPath: sep,
     message: 'Select a directory to store downloaded audio to:'
   }])
   .catch(err => signale.error(err))
