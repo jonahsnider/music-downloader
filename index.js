@@ -42,7 +42,7 @@ urlList
       const videoLogger = signale.scope(displayName);
 
       // Full file path for the audio file
-      const filePath = join(__dirname, 'audio', `${displayName}.mp4`);
+      const filePath = join(__dirname, 'audio', `${displayName}.mp3`);
 
       // Skip over pre-existing files
       if (existsSync(filePath)) return videoLogger.warn('File already exists, skipping');
