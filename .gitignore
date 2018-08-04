@@ -69,3 +69,6 @@ audio
 !.vscode/tasks.json
 !.vscode/launch.json
 !.vscode/extensions.json
+
+# Sample YouTube video resolvables
+videos.txt
