@@ -1,7 +1,7 @@
 {
   "author": "Jonah Snider <me@jonahsnider.ninja> (jonahsnider.ninja)",
   "bin": {
-    "music-downloader": ".index.js"
+    "music-downloader": "index.js"
   },
   "dependencies": {
     "inquirer": "6.0.0",
@@ -27,5 +27,5 @@
     "lint": "eslint .",
     "start": "node index.js"
   },
-  "version": "2.1.0"
+  "version": "2.1.1"
 }
