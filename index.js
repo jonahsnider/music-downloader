@@ -7,7 +7,6 @@ const ytdl = require('ytdl-core');
 const { existsSync, createWriteStream } = require('fs');
 const inquirer = require('inquirer');
 const fs = require('fs');
-const ProgressBar = require('progress');
 
 signale.start('music-downloader started');
 
@@ -85,8 +84,6 @@ inquirer
             filter: 'audioonly'
           });
 
-          let bar;
-
           // Set up event handlers before calling the pipe function
           stream
             .on('error', err => {
@@ -98,19 +95,6 @@ inquirer
                 prefix: '[1/2]',
                 message: 'Downloading...'
               });
-            })
-            // This event triggers whenever a chunk of data is received
-            .on('response', serverResponse => {
-              bar = new ProgressBar(`[${displayName}] [:bar] :etas remaining`, {
-                complete: '=',
-                incomplete: ' ',
-                width: 20,
-                total: parseInt(serverResponse.headers['content-length'], 10),
-                clear: true
-              });
-            })
-            .on('progress', chunkLength => {
-              bar.tick(chunkLength);
             })
             // This event is triggered when the stream has finished being flushed to the file system
             .on('finish', () => {
