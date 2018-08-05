@@ -1,29 +1,42 @@
 #! /usr/bin/env node
 
 const signale = require('signale');
-const { join } = require('path');
+const { join, parse } = require('path');
 const lineByLine = require('linebyline');
 const ytdl = require('ytdl-core');
 const { existsSync, createWriteStream } = require('fs');
 const inquirer = require('inquirer');
-inquirer.registerPrompt('fuzzypath', require('inquirer-fuzzy-path'));
+const fs = require('fs');
+const ProgressBar = require('progress');
 
 signale.start('music-downloader started');
 
+// Path to put default search area for file selection
+let userHomePath;
+if (process.env.HOME) {
+  userHomePath = process.env.HOME;
+} else if (process.env.HOMEPATH) {
+  userHomePath = process.env.HOMEPATH;
+} else {
+  userHomePath = __dirname;
+}
+
 inquirer
   .prompt([{
-    type: 'fuzzypath',
-    name: 'urlList',
+    'type': 'input',
+    'name': 'urlList',
     // Only allow non-directories and text files
-    pathFilter: (isDirectory, nodePath) => !isDirectory && nodePath.endsWith('.txt'),
-    message: 'Select a text file to load videos from (1 video per line):'
+    'validate': input => fs.lstatSync(input).isFile() && parse(input).ext === '.txt',
+    'message': 'Select a text file to load videos from (1 video per line):',
+    'default': join(userHomePath, 'videos.txt')
   },
   {
-    type: 'fuzzypath',
-    name: 'resultDirectory',
+    'type': 'input',
+    'name': 'resultDirectory',
     // Only allow directories
-    pathFilter: isDirectory => isDirectory,
-    message: 'Select a directory to store downloaded audio to:'
+    'validate': input => fs.lstatSync(input).isDirectory(),
+    'message': 'Select a directory to store downloaded audio to:',
+    'default': join(userHomePath, 'Music')
   }])
   .catch(err => signale.error(err))
   .then(params => {
@@ -72,6 +85,8 @@ inquirer
             filter: 'audioonly'
           });
 
+          let bar;
+
           // Set up event handlers before calling the pipe function
           stream
             .on('error', err => {
@@ -83,6 +98,19 @@ inquirer
                 prefix: '[1/2]',
                 message: 'Downloading...'
               });
+            })
+            // This event triggers whenever a chunk of data is received
+            .on('response', serverResponse => {
+              bar = new ProgressBar(`[${displayName}] [:bar] :etas remaining`, {
+                complete: '=',
+                incomplete: ' ',
+                width: 20,
+                total: parseInt(serverResponse.headers['content-length'], 10),
+                clear: true
+              });
+            })
+            .on('progress', chunkLength => {
+              bar.tick(chunkLength);
             })
             // This event is triggered when the stream has finished being flushed to the file system
             .on('finish', () => {
