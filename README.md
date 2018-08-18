@@ -19,4 +19,4 @@ yarn global add music-downloader
 ## Usage
 
 1. Run `music-downloader` in a console.
-2. Get audioo files from folder you specified in step 1.
+2. Get audio files from folder you specified in step 1.
