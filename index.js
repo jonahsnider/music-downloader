@@ -4,28 +4,20 @@ const signale = require('signale');
 const { join, parse } = require('path');
 const lineByLine = require('linebyline');
 const ytdl = require('ytdl-core');
-const { existsSync, createWriteStream } = require('fs');
+const { existsSync, createWriteStream, lstatSync } = require('fs');
 const inquirer = require('inquirer');
-const fs = require('fs');
 
 signale.start('music-downloader started');
 
 // Path to put default search area for file selection
-let userHomePath;
-if (process.env.HOME) {
-  userHomePath = process.env.HOME;
-} else if (process.env.HOMEPATH) {
-  userHomePath = process.env.HOMEPATH;
-} else {
-  userHomePath = __dirname;
-}
+const userHomePath = require('os').homedir();
 
 inquirer
   .prompt([{
     'type': 'input',
     'name': 'urlList',
     // Only allow non-directories and text files
-    'validate': input => fs.lstatSync(input).isFile() && parse(input).ext === '.txt',
+    'validate': input => lstatSync(input).isFile() && parse(input).ext === '.txt',
     'message': 'Select a text file to load videos from (1 video per line):',
     'default': join(userHomePath, 'videos.txt')
   },
@@ -33,7 +25,7 @@ inquirer
     'type': 'input',
     'name': 'resultDirectory',
     // Only allow directories
-    'validate': input => fs.lstatSync(input).isDirectory(),
+    'validate': input => lstatSync(input).isDirectory(),
     'message': 'Select a directory to store downloaded audio to:',
     'default': join(userHomePath, 'Music')
   }])
