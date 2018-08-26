@@ -1,5 +1,7 @@
 {
-  "author": "Jonah Snider <me@jonahsnider.ninja> (jonahsnider.ninja)",
+  "contributors": [
+    "Jonah Snider <me@jonahsnider.ninja> (jonahsnider.ninja)",
+    "Jdender~ <jdenderplays@gmail.com> (https://github.com/jdenderplays)"],
   "bin": {
     "music-downloader": "index.js"
   },
@@ -26,5 +28,5 @@
     "lint": "eslint .",
     "start": "node index.js"
   },
-  "version": "3.0.2"
+  "version": "3.1.0"
 }
