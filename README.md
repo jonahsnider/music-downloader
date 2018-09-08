@@ -1,5 +1,7 @@
 # music-downloader
 
+[![NPM](https://nodei.co/npm/music-downloader.png)](https://www.npmjs.com/package/music-downloader)
+
 Command line utility to download music from YouTube
 
 ## Installation
