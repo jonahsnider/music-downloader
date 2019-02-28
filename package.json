@@ -8,7 +8,7 @@
   "dependencies": {
     "inquirer": "6.0.0",
     "linebyline": "1.3.0",
-    "signale": "1.3.0",
+    "signale": "1.4.0",
     "ytdl-core": "0.29.1"
   },
   "description": "Command line utility to download music from YouTube",
