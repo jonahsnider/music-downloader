@@ -489,19 +489,20 @@ lodash@^4.17.11, lodash@^4.3.0:
   version "4.17.11"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.11.tgz#b39ea6229ef607ecd89e2c8df12536891cac9b8d"
 
-m3u8stream@^0.3.0:
-  version "0.3.0"
-  resolved "https://registry.yarnpkg.com/m3u8stream/-/m3u8stream-0.3.0.tgz#9b8255ad48b47d6069e755f22c84fce04c4e2697"
+m3u8stream@^0.6.2:
+  version "0.6.2"
+  resolved "https://registry.yarnpkg.com/m3u8stream/-/m3u8stream-0.6.2.tgz#c2c62ddce88156d80378dd59be010c8b8e9d120b"
   dependencies:
-    miniget "^1.1.0"
+    miniget "^1.4.0"
+    sax "^1.2.4"
 
 mimic-fn@^1.0.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/mimic-fn/-/mimic-fn-1.2.0.tgz#820c86a39334640e99516928bd03fca88057d022"
 
-miniget@^1.1.0:
-  version "1.3.0"
-  resolved "https://registry.yarnpkg.com/miniget/-/miniget-1.3.0.tgz#839c81b237c793baa21158081980fe424c05416c"
+miniget@^1.4.0:
+  version "1.5.1"
+  resolved "https://registry.yarnpkg.com/miniget/-/miniget-1.5.1.tgz#4f93840d5aaed21634cd12fd07d22f7d64e9d570"
 
 minimatch@^3.0.4:
   version "3.0.4"
@@ -673,7 +674,7 @@ rxjs@^6.4.0:
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/safer-buffer/-/safer-buffer-2.1.2.tgz#44fa161b0187b9549dd84bb91802f9bd8385cd6a"
 
-sax@^1.1.3:
+sax@^1.1.3, sax@^1.2.4:
   version "1.2.4"
   resolved "https://registry.yarnpkg.com/sax/-/sax-1.2.4.tgz#2816234e2378bddc4e5354fab5caa895df7100d9"
 
@@ -815,11 +816,11 @@ write@1.0.3:
   dependencies:
     mkdirp "^0.5.1"
 
-ytdl-core@0.23.0:
-  version "0.23.0"
-  resolved "https://registry.yarnpkg.com/ytdl-core/-/ytdl-core-0.23.0.tgz#b898a1cca87a7d7cdad3175d63fb7012888acaed"
+ytdl-core@0.29.1:
+  version "0.29.1"
+  resolved "https://registry.yarnpkg.com/ytdl-core/-/ytdl-core-0.29.1.tgz#2d7a1505d47a34a02551639a8d4092af959c4902"
   dependencies:
     html-entities "^1.1.3"
-    m3u8stream "^0.3.0"
-    miniget "^1.1.0"
+    m3u8stream "^0.6.2"
+    miniget "^1.4.0"
     sax "^1.1.3"
