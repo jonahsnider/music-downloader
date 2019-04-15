@@ -6,7 +6,7 @@
     "music-downloader": "index.js"
   },
   "dependencies": {
-    "inquirer": "6.2.2",
+    "inquirer": "6.3.1",
     "linebyline": "1.3.0",
     "signale": "1.4.0",
     "ytdl-core": "0.29.1"
