@@ -9,7 +9,7 @@
     "inquirer": "6.5.0",
     "linebyline": "1.3.0",
     "signale": "1.4.0",
-    "ytdl-core": "0.29.4"
+    "ytdl-core": "0.29.5"
   },
   "description": "Command line utility to download music from YouTube",
   "devDependencies": {
