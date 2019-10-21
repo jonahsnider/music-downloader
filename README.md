@@ -27,4 +27,9 @@ yarn global add music-downloader
 
 ### Accepted videos
 
-Videos are loaded from a text file you specify. The file must end in the `txt` extension and have one video ID resolvable per line. A video ID resolvable is a YouTube.com URL, youtu.be URL, video ID. Duplicates are filtered out on execution, the file will not be modified.
+Videos are loaded from a text file you specify. The file must end in the `txt` extension and have one video ID resolvable per line. A video ID resolvable is:
+- a YouTube.com URL, (e.g. https://www.youtube.com/watch?v=C0DPdy98e4c),
+- a youtu.be URL (e.g. https://youtu.be/C0DPdy98e4c), or
+- a video ID (e.g. C0DPdy98e4c).
+
+Duplicates are filtered out on execution, the file will not be modified.
