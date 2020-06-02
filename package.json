@@ -23,7 +23,8 @@
   "description": "Command line utility to download music from YouTube",
   "devDependencies": {
     "eslint": "7.1.0",
-    "eslint-config-aqua": "7.2.4"
+    "eslint-config-aqua": "7.2.4",
+    "np": "^6.2.3"
   },
   "keywords": [
     "youtube",
