@@ -6,7 +6,7 @@ Command line utility to download music from YouTube
 
 ## Installation
 
-### [NPM](https://www.npmjs.com/)
+### [npm](https://www.npmjs.com/)
 
 ```bash
 npm i -g music-downloader
