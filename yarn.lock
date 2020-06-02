@@ -206,9 +206,10 @@ escape-string-regexp@^1.0.5:
   version "1.0.5"
   resolved "https://registry.yarnpkg.com/escape-string-regexp/-/escape-string-regexp-1.0.5.tgz#1b61c0562190a8dff6ae3bb2cf0200ca130b86d4"
 
-eslint-config-aqua@4.4.1:
-  version "4.4.1"
-  resolved "https://registry.yarnpkg.com/eslint-config-aqua/-/eslint-config-aqua-4.4.1.tgz#eaf15713b7a9ca31d0c4ac9bdbddc1531a2055a7"
+eslint-config-aqua@7.2.4:
+  version "7.2.4"
+  resolved "https://registry.yarnpkg.com/eslint-config-aqua/-/eslint-config-aqua-7.2.4.tgz#dc862bc6ede156aca556f1fd234e1463fd4950f4"
+  integrity sha512-AfZdiyAkzeVQaPlpKPI2KGtyWH3ePs5fAOUwDYsT52OGAPyBid8Rotgkn/0JdRM/79MF3pOrXfOtcEjsMxhB3w==
 
 eslint-scope@^5.0.0:
   version "5.0.0"
