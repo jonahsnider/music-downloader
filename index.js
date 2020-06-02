@@ -1,7 +1,7 @@
 #! /usr/bin/env node
 
 const signale = require('signale');
-const { join, parse } = require('path');
+const { join } = require('path');
 const lineByLine = require('linebyline');
 const ytdl = require('ytdl-core');
 const { lstatSync, existsSync, createWriteStream } = require('fs');
@@ -16,7 +16,7 @@ const prompts = [{
   'type': 'input',
   'name': 'urlList',
   // Only allow non-directories and text files
-  'validate': input => lstatSync(input).isFile() && parse(input).ext === '.txt',
+  'validate': input => lstatSync(input).isFile(),
   'message': 'Select a text file to load videos from (1 video per line):',
   'default': join(userHomePath, 'videos.txt')
 },
@@ -40,7 +40,7 @@ const downloadVideo = resultDir => async videoID => {
   const data = await ytdl.getBasicInfo(videoID);
 
   // Display name will be the video title if the given video doesn't have media metadata
-  const displayName = data.media.song ? data.media.song : data.title;
+  const displayName = typeof data.videoDetails.media.song === 'string' ? data.videoDetails.media.song : data.videoDetails.title;
 
   // Initialize a logger for this video using the display name
   const videoLogger = signale.scope(displayName);
