@@ -1,7 +1,16 @@
 {
   "contributors": [
-    "Jonah Snider <me@jonahsnider.ninja> (jonahsnider.ninja)",
-    "Jdender~ <jdenderplays@gmail.com> (https://github.com/jdenderplays)"],
+    {
+      "email": "jonah@jonah.pw",
+      "name": "Jonah Snider",
+      "url": "https://jonah.pw"
+    },
+    {
+      "name": "Jdender~",
+      "email": "jdenderplays@gmail.com",
+      "url": "https://github.com/jdenderplays"
+    }
+  ],
   "bin": {
     "music-downloader": "index.js"
   },
