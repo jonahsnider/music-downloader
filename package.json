@@ -24,7 +24,7 @@
   "devDependencies": {
     "eslint": "7.2.0",
     "eslint-config-aqua": "7.2.4",
-    "np": "6.2.3"
+    "np": "6.2.4"
   },
   "keywords": [
     "youtube",
